@@ -2,101 +2,51 @@ package PracticaFinal;
 
 import java.util.Scanner;
 
+
 public class AdrianPrimitivaManual {
 
-
-	public static void  primitiva () {
-
-		Integer[] miPrimitiva = new Integer[6];
-		int numPedir = 1;
+	public static int[] primitiva() {
+		//Creo el array para ir guardando los numeros
+		int[] miPrimitiva = new int[6];
+		
+		//Se pide los numeros por pantalla al usuario
+		System.out.println("Dime los 6 números del boleto.");
+		
 		for (int i = 0; i < miPrimitiva.length; i++) {
-
-			if (miPrimitiva[i] == null) {
-
-				System.out.println("Dime el "+numPedir+"º que quieres.");
-
-				int numMio = scannerInt();
-
-				if (numMio >= 1 && numMio <= 20) {
-
-					for (int j = 0; j < miPrimitiva.length; j++) {
-
-						if (miPrimitiva[j] != null) {
-
-							if (miPrimitiva[j] == numMio) {
-
-								System.out.println("Hay dos numeros iguales, introduce otro distinto");
-								numMio = scannerInt();
-
-								while(miPrimitiva[j] == numMio) {
-
-									System.out.println("Hay dos numeros iguales, introduce otro distinto");
-									numMio = scannerInt();
-
-								}
-
-
-							}
-
-
-
-						}
-						miPrimitiva[i] = numMio;
-					}
-
-				}else {
-
-					System.out.println("Numero no disponible, introduce otro.");
-					numMio = scannerInt();
-
-					while (numMio < 1 || numMio > 20) {
-
-						System.out.println("Numero no disponible, introduce otro.");
-						numMio = scannerInt();
-
-					}
-
-				}
-
+			
+			int numeroAñadir = scannerInt();
+			
+			//Comprobamos que el numero pedido esta entre los valores que queremos
+			while(numeroAñadir < 1 || numeroAñadir > 20) {
+				
+				System.out.println("El numero no es valido, introduce otro distinto.");
+				numeroAñadir = scannerInt();
+				
 			}
-
-			numPedir++;
-
-
+			
+			//Comprobamos que el numero pedido no esta repetido, si es asi se pide de nuevo
+			for (int j = 0; j < i; j++) {
+				
+				if (miPrimitiva[j] == numeroAñadir) {
+					
+					System.out.println("El numero ya esta introducido, introduce uno distinto.");
+					i--;
+					break;
+					
+				}
+				
+			}
+			
+			miPrimitiva[i] = numeroAñadir;
+			
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		
+		
+		return miPrimitiva;
 
 	}
+
+
 
 
 
