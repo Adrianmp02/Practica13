@@ -2,7 +2,7 @@ package PracticaFinal;
 
 public class Alex {
 	
-	//Alex
+	//Alex.
 	public static String puntaje() {
 		int comparacion = 4;
 		int reintegro = 5;
