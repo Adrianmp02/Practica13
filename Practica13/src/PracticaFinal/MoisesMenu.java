@@ -1,5 +1,5 @@
 package PracticaFinal;
 
-public class Moisexy {
+public class MoisesMenu {
 
 }
