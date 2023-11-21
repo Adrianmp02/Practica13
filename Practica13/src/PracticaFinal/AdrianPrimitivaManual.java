@@ -19,7 +19,30 @@ public class AdrianPrimitivaManual {
 
 				if (numMio >= 1 && numMio <= 20) {
 
-					miPrimitiva[i] = numMio;
+					for (int j = 0; j < miPrimitiva.length; j++) {
+
+						if (miPrimitiva[j] != null) {
+
+							if (miPrimitiva[j] == numMio) {
+
+								System.out.println("Hay dos numeros iguales, introduce otro distinto");
+								numMio = scannerInt();
+
+								while(miPrimitiva[j] == numMio) {
+
+									System.out.println("Hay dos numeros iguales, introduce otro distinto");
+									numMio = scannerInt();
+
+								}
+
+
+							}
+
+
+
+						}
+						miPrimitiva[i] = numMio;
+					}
 
 				}else {
 
@@ -32,7 +55,7 @@ public class AdrianPrimitivaManual {
 						numMio = scannerInt();
 
 					}
-					
+
 				}
 
 			}
