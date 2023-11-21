@@ -8,58 +8,58 @@ public class AdrianPrimitivaManual {
 	public static void  primitiva () {
 
 		Integer[] miPrimitiva = new Integer[6];
+		int numPedir = 1;
+		for (int i = 0; i < miPrimitiva.length; i++) {
 
-		
+			if (miPrimitiva[i] == null) {
 
-		for(int j = 0; j < miPrimitiva.length; j++) {
-
-			int numPedir = 1;
-
-			for (int i = 0; i < miPrimitiva.length; i++) {
-
-				System.out.println("Dime el "+numPedir+"º que quieres");
-				numPedir++;
+				System.out.println("Dime el "+numPedir+"º que quieres.");
 
 				int numMio = scannerInt();
 
 				if (numMio >= 1 && numMio <= 20) {
 
-					if (miPrimitiva[i] == null) {
-
-						miPrimitiva[i] = numMio;
-
-					}
+					miPrimitiva[i] = numMio;
 
 				}else {
 
-					System.out.println("Numero no disponible elige otro.");
-
+					System.out.println("Numero no disponible, introduce otro.");
 					numMio = scannerInt();
 
-					while(numMio < 1 && numMio >20) {
+					while (numMio < 1 || numMio > 20) {
 
+						System.out.println("Numero no disponible, introduce otro.");
 						numMio = scannerInt();
 
 					}
-
+					
 				}
-
-
 
 			}
 
-
-
-
-
-
-
-
-
-
+			numPedir++;
 
 
 		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

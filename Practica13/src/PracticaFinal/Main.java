@@ -6,12 +6,10 @@ public class Main {
 
 	
 	public static void main(String[] args) {
-		int rPri[] = David.primitivaRandom();
+		
+		AdrianPrimitivaManual.primitiva();
 		
 		
-		System.out.println(Arrays.toString(rPri));
-		
-		System.out.println(David.primitivaReintegro());
 	}
 	
 }
