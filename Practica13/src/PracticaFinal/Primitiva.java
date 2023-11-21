@@ -28,7 +28,7 @@ public class Primitiva {
 	}
 	
 	//Alex
-	public void puntuaje() {
+	public void puntaje() {
 		
 		
 		
