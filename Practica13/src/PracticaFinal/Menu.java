@@ -31,12 +31,20 @@ public class Menu {
 				//TODO jugar
 				contadorPartidas++;
 
-				int[] boleto1 = Combinacion.primitivaManual();
+				int[] boleto1Manual = Combinacion.primitivaManual();
+				int boleto1ReintegroManual = Combinacion.reintegroManual();
 				
-				int boleto1Reintegro = Combinacion.reintegroManual();
 				
-				System.out.println("Tu combinacion es: "+Arrays.toString(boleto1));
-				System.out.println("Tu reintegro es: "+boleto1Reintegro);
+				int[] boleto1Random = Combinacion.primitivaRandom();
+				int boleto1ReintegroRandom = Combinacion.reintegroRandom();
+				
+				
+				
+				
+				System.out.println(Combinacion.comparativaPrimitiva(boleto1Manual, boleto1Random));
+				
+				
+				
 
 			}else if(eleccion == 2) {
 				//TODO historial

@@ -103,15 +103,15 @@ public class Combinacion {
 		return rn.nextInt(max - min + 1) + min;
 	}
 
-	public static int comparativaPrimitiva() {
+	public static int comparativaPrimitiva(int[] boletoManual, int[] boletoRandom) {
 
 		int contadorPrimitiva = 0;
 
-		for (int i = 0; i < primitivaManual().length; i++) {
+		for (int i = 0; i < boletoManual.length; i++) {
 
-			for (int j = 0; j < primitivaRandom().length; j++) {
+			for (int j = 0; j < boletoRandom.length; j++) {
 
-				if (primitivaManual()[i] == primitivaRandom()[j]) {
+				if (boletoManual[i] == boletoRandom[j]) {
 
 					contadorPrimitiva++;
 
