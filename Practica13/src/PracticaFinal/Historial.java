@@ -4,50 +4,47 @@ public class Historial {
 
 	private int partidasJugadas;
 	private int partidasGanadas;
-	private String premioTotal;
-
+	private int premioTotal;
+	
 	public Historial () {
 
 		this.partidasJugadas = 0;
 		this.partidasGanadas = 0;
-
+		this.premioTotal = 0;
+		
 	}
 
 	public int jugarPartida() {
-		//TODO
+		
+		partidasJugadas++;
 
 		return partidasJugadas;
+		
 	}
 
 	public int partidaGanada() {
-		//TODO
-		if (Combinacion.puntaje() != null) {
-			
-			partidasGanadas++;
-			
-		}
+		
+
+		partidasGanadas = partidasGanadas + 1;
 
 		return partidasGanadas;
+		
 	}
 
-	public String premioGanado() {
-
-		if (Combinacion.puntaje() != null) {
-
-			this.premioTotal = Combinacion.puntaje();
-
-		}
-
-		return premioTotal;
+	public int premioGanado(int premio) {
 		
+		premioTotal = premioTotal + premio;
+		
+		return premioTotal;
+
 	}
 
 	public String toString() {
-		
-		return "Has jugadado: "+jugarPartida()+"partidas. \nHas sido premiado en: "+partidaGanada()+ "partidas. \n"+premioGanado();
-		
+
+		return "Has jugadado: "+partidasJugadas+" partidas. \nHas sido premiado en: "+partidasGanadas+ " partidas. \n"+premioTotal;
+
 	}
-	
+
 
 
 

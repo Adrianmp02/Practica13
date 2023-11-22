@@ -79,8 +79,31 @@ public class Combinacion {
 
 		int [] primitivaR = new int [6];
 
-		for (int n = 0; n < primitivaR.length; n++) {
-			primitivaR[n] = numeroAleatorio();
+		for (int i = 0; i < primitivaR.length; i++) {
+
+			boolean numeroRepetido = false;
+
+			int numeroAñadir = numeroAleatorio();
+
+			for (int j = 0; j < i; j++) {
+
+				if (numeroAñadir == primitivaR[j]) {
+
+					i--;			
+					numeroRepetido = true;
+					break;
+
+				}
+
+			}
+
+			if(!numeroRepetido) {
+
+				primitivaR[i] = numeroAñadir;	
+
+			}
+
+
 		}
 
 		return primitivaR;
@@ -121,61 +144,73 @@ public class Combinacion {
 
 
 		}
-		
+
 		return contadorPrimitiva;
-		
+
 	}
-	
-	public static int comparativaReintegro() {
-		
+
+	public static int comparativaReintegro(int reintegroManual, int reintegroRandom) {
+
 		int contadorReintegro = 0;
-		
-		if (reintegroManual() == reintegroRandom()) {
-			
+
+		if (reintegroManual== reintegroRandom) {
+
 			contadorReintegro++;
-			
+
 		}
-		
+
 		return contadorReintegro;
-		
+
 	}
 
-	public static String puntaje() {
+	public static int puntaje(int aciertoPrimitiva, int aciertoReintegro, Historial h) {
 
-		if(comparativaReintegro() == 1) {
-			
-			if (comparativaPrimitiva() == 4) {
-				
-				return "Has ganado : 1.001 €";
-				
-			}else if(comparativaPrimitiva() == 5) {
-				
-				return "Has ganado : 10.001 €";
-				
-			}else if(comparativaPrimitiva() == 6) {
-				
-				return "Has ganado : 1.000.001 €";
-				
+		if(aciertoReintegro == 1) {
+
+			if (aciertoPrimitiva > 3) {
+
+				h.partidaGanada();
+
+			}
+
+			if (aciertoPrimitiva == 4) {
+
+				return 1001;
+
+			}else if(aciertoPrimitiva == 5) {
+
+				return 10001;
+
+			}else if(aciertoPrimitiva == 6) {
+
+				return 1000001;
+
 			} 
-			
-		}else if(comparativaReintegro() != 1) {
-			
-			if (comparativaPrimitiva() == 4) {
-				
-				return "Has ganado : 1.000 €";
-				
-			}else if(comparativaPrimitiva() == 5) {
-				
-				return "Has ganado : 10.000 €";
-				
-			}else if(comparativaPrimitiva() == 6) {
-				
-				return "Has ganado : 1.000.000 €";
-				
+
+		}else if(aciertoReintegro != 1) {
+
+			if (aciertoPrimitiva > 3) {
+
+				h.partidaGanada();
+
+			}
+
+			if (aciertoPrimitiva == 4) {
+
+				return 1000;
+
+			}else if(aciertoPrimitiva == 5) {
+
+				return 10000;
+
+			}else if(aciertoPrimitiva == 6) {
+
+				return 1000000;
+
 			} 
 		}
-		
-		return null;
+
+		return 0;
 	}
 
 

@@ -1,22 +1,22 @@
 package PracticaFinal;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Menu {
 
+	public static int compaPrimitiva;
+	public static int compaReintegro;
 
 	public static void main(String[] args) {
 
+		Historial h = new Historial();
+		
 		int eleccion;
 
 		int limitePartidas = 2;
 		int contadorPartidas = 0;
 
 		do {
-
-
-			
 
 			System.out.println("Elige una opcion:");
 			System.out.println();
@@ -28,39 +28,44 @@ public class Menu {
 			eleccion = scannerInt();
 
 			if (eleccion == 1) {
-				//TODO jugar
+				
+				h.jugarPartida();
+				
 				contadorPartidas++;
 
-				int[] boleto1Manual = Combinacion.primitivaManual();
-				int boleto1ReintegroManual = Combinacion.reintegroManual();
+				int[] boletoRandom = Combinacion.primitivaRandom();
+				int[] boletoManual = Combinacion.primitivaManual();
+
+				int boletoReintegroRandom = Combinacion.reintegroRandom();
+				int boletoReintegroManual = Combinacion.reintegroManual();
+
+
+
+				compaPrimitiva = Combinacion.comparativaPrimitiva(boletoManual, boletoRandom);
+				compaReintegro = Combinacion.comparativaReintegro(boletoReintegroManual, boletoReintegroRandom);
+
 				
+
+
+				System.out.println("Has acertado: "+compaPrimitiva+" numeros en la primitiva.");
+				System.out.println("Has acertado: "+compaReintegro+" numero en el reintegro.");
+
+				int premio = Combinacion.puntaje(compaPrimitiva, compaReintegro, h);
 				
-				int[] boleto1Random = Combinacion.primitivaRandom();
-				int boleto1ReintegroRandom = Combinacion.reintegroRandom();
-				
-				
-				
-				
-				System.out.println(Combinacion.comparativaPrimitiva(boleto1Manual, boleto1Random));
-				
-				
-				
+				h.premioGanado(premio);
 
 			}else if(eleccion == 2) {
-				//TODO historial
 
-
-
+				System.out.println(h.toString());
 
 			}else if(eleccion == 3) {
-				
+
 				break;
-				
+
 			}else {
 
 
 				System.out.println("Opcion no valida");
-
 
 			}
 
