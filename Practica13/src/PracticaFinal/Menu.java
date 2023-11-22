@@ -1,5 +1,6 @@
 package PracticaFinal;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Menu {
@@ -30,6 +31,12 @@ public class Menu {
 				//TODO jugar
 				contadorPartidas++;
 
+				int[] boleto1 = Combinacion.primitivaManual();
+				
+				int boleto1Reintegro = Combinacion.reintegroManual();
+				
+				System.out.println("Tu combinacion es: "+Arrays.toString(boleto1));
+				System.out.println("Tu reintegro es: "+boleto1Reintegro);
 
 			}else if(eleccion == 2) {
 				//TODO historial
