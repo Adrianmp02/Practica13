@@ -5,7 +5,7 @@ import java.util.Random;
 public class David {
 	
 
-	//David o Moises
+	//David 
 	public static int[] primitivaRandom(){
 		int [] primitivaR = new int [6];
 		
