@@ -55,8 +55,9 @@ public class Menu {
 				System.out.println("=============================");
 				System.out.println("╔═══════════════════════════╗");
 				System.out.println("║                           ║");
-				System.out.println("║                           ║");
-				System.out.println("║       LA PRIMITIVA        ║");
+				System.out.println("║     ╔═══╗                 ║");
+				System.out.println("║     ║   ║ LA PRIMITIVA    ║");
+				System.out.println("║     ╚   ╝                 ║");
 				System.out.println("║                           ║");
 				System.out.println("║       "+contadorPartidas+". APUESTA(S)       ║");
 				System.out.println("╠═══════════════════════════╣");
