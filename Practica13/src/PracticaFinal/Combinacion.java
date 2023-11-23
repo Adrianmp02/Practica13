@@ -136,6 +136,7 @@ public class Combinacion {
 		int max = 20;
 
 		Random rn = new Random();
+		
 		return rn.nextInt(max - min + 1) + min;
 		
 	}
