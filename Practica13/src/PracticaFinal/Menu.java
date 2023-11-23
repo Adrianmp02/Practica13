@@ -51,15 +51,18 @@ public class Menu {
 				//Se guardan en variables los numeros de reintegro Manual y Aleatorio
 				int boletoReintegroRandom = Combinacion.reintegroRandom();
 				int boletoReintegroManual = Combinacion.reintegroManual();
-				System.out.println("===========================");
-				System.out.println("||                       ||");
-				System.out.println("||                       ||");
-				System.out.println("||     LA PRIMITIVA      ||");
-				System.out.println("||                       ||");
-				System.out.println("||     "+contadorPartidas+". APUESTA(S)     ||");
-				System.out.println("===========================");
 				
-				System.out.print("|| 1. ");
+				System.out.println("=============================");
+				System.out.println("╔═══════════════════════════╗");
+				System.out.println("║                           ║");
+				System.out.println("║                           ║");
+				System.out.println("║       LA PRIMITIVA        ║");
+				System.out.println("║                           ║");
+				System.out.println("║       "+contadorPartidas+". APUESTA(S)       ║");
+				System.out.println("╠═══════════════════════════╣");
+				System.out.println("║                           ║");
+				
+				System.out.print("║    1. ");
 				for (int i = 0; i < boletoManual.length; i++) {
 					
 					System.out.print(String.format("%02d", boletoManual[i]));
@@ -67,15 +70,20 @@ public class Menu {
 					
 				}
 				
+				System.out.print("  ║");
 				System.out.println();
 				
-				
-				System.out.println("     reintegro: "+boletoReintegroManual);
-				System.out.println("=======================");
-				System.out.println("               1,00 EUR ");
-				System.out.println(LocalDate.now());
-				System.out.println();
-				System.out.println();
+				System.out.println("║                           ║");
+				System.out.println("║      REINTEGRO: "+boletoReintegroManual+"         ║");
+				System.out.println("║                           ║");
+				System.out.println("╠═══════════════════════════╣");
+				System.out.println("║                           ║");
+				System.out.println("║                 1,00 EUR  ║");
+				System.out.println("║                           ║");
+				System.out.println("║  "+ LocalDate.now()+"               ║");
+				System.out.println("║                           ║");
+				System.out.println("╚═══════════════════════════╝");
+				System.out.println("=============================");
 				
 				
 				
