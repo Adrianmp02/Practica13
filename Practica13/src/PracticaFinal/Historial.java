@@ -2,10 +2,12 @@ package PracticaFinal;
 
 public class Historial {
 
+	//Atributos
 	private int partidasJugadas;
 	private int partidasGanadas;
 	private int premioTotal;
 	
+	//Constructor
 	public Historial () {
 
 		this.partidasJugadas = 0;
@@ -14,6 +16,7 @@ public class Historial {
 		
 	}
 
+	//Contador para llevar recuento de las partidas jugadas
 	public int jugarPartida() {
 		
 		partidasJugadas++;
@@ -22,6 +25,7 @@ public class Historial {
 		
 	}
 
+	//Contador para llevar recuento de las partidas ganadas
 	public int partidaGanada() {
 		
 
@@ -31,6 +35,7 @@ public class Historial {
 		
 	}
 
+	//Contador para llevar registro del premio total que ha ganado el usuario
 	public int premioGanado(int premio) {
 		
 		premioTotal = premioTotal + premio;
@@ -39,16 +44,11 @@ public class Historial {
 
 	}
 
+	//Retornamos por pantalla el historial que queremos que vea el usuario
 	public String toString() {
 
-		return "Has jugadado: "+partidasJugadas+" partidas. \nHas sido premiado en: "+partidasGanadas+ " partidas. \n"+premioTotal;
+		return "Has jugadado: "+partidasJugadas+" partidas. \nHas sido premiado en: "+partidasGanadas+ " partidas. \nHas ganado un total de: "+premioTotal+" €";
 
 	}
-
-
-
-
-
-
 
 }

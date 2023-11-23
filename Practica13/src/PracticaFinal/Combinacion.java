@@ -44,20 +44,21 @@ public class Combinacion {
 
 		}
 
-
-
+		//Se ordena el Array
 		Arrays.sort(miPrimitiva);
 
 		return miPrimitiva;
 
 	}
-
+	
+	//Pedimos por pantalla el reintegro que queremos
 	public static int reintegroManual(){
 
 		System.out.println("Dime el reintegro.");
 
 		int miReintegro = scannerInt();
-
+		
+		//Si no esta dentro de los parametros que pedimos se solicita uno nuevo
 		if(miReintegro < 0 || miReintegro > 9) {
 
 			System.out.println("Reintegro no valido, introduce otro distinto.");
@@ -69,24 +70,29 @@ public class Combinacion {
 				miReintegro = scannerInt();
 
 			}
+			
 		}
 
 		return miReintegro;
 
 	}
 
+	//Genera un array de 6 posiciones con numeros distintos (no se repiten)
 	public static int[] primitivaRandom(){
 
 		int [] primitivaR = new int [6];
 
 		for (int i = 0; i < primitivaR.length; i++) {
 
+			//Flag para que si un numero se repite
 			boolean numeroRepetido = false;
 
 			int numeroAñadir = numeroAleatorio();
-
+			
+			//Se comprueba que en el array no hay un numero igual
 			for (int j = 0; j < i; j++) {
-
+				
+				//Si hay igual se cambia la flag a true
 				if (numeroAñadir == primitivaR[j]) {
 
 					i--;			
@@ -96,13 +102,13 @@ public class Combinacion {
 				}
 
 			}
-
+			
+			//Si la flag es false, guarda el numero. (Si es true, vuelve al loop)
 			if(!numeroRepetido) {
 
 				primitivaR[i] = numeroAñadir;	
 
 			}
-
 
 		}
 
@@ -110,22 +116,31 @@ public class Combinacion {
 
 	}
 
+	//Genera un reintegro aleatorio
 	public static int reintegroRandom () {
+		
 		int min = 0;
 		int max = 9;
 
 		Random rn = new Random();
 		return rn.nextInt(max - min + 1) + min;
+		
 	}
 
+	//Metodo para generar numeros aleatorios
 	public static int numeroAleatorio(){
+		
+		//Numero minimo que genera aleatorio
 		int min = 1;
+		//Numero maximo que genera aleatorio
 		int max = 20;
 
 		Random rn = new Random();
 		return rn.nextInt(max - min + 1) + min;
+		
 	}
 
+	//Se compara la primitiva manual que ingresa con la aleatoria y devuelve los aciertos que ha tenido el usuario
 	public static int comparativaPrimitiva(int[] boletoManual, int[] boletoRandom) {
 
 		int contadorPrimitiva = 0;
@@ -142,31 +157,31 @@ public class Combinacion {
 
 			}
 
-
 		}
 
 		return contadorPrimitiva;
 
 	}
 
+	//Se compara el reintegro y devuelve 1 si ha hacertado o 0 si no
 	public static int comparativaReintegro(int reintegroManual, int reintegroRandom) {
-
-		int contadorReintegro = 0;
 
 		if (reintegroManual== reintegroRandom) {
 
-			contadorReintegro++;
+			return 1;
 
 		}
 
-		return contadorReintegro;
-
+		return 0;
+		
 	}
 
+	//Se compara los aciertos y dependiendo los aciertos devuelve el premio que ha conseguido el usuario
 	public static int puntaje(int aciertoPrimitiva, int aciertoReintegro, Historial h) {
 
 		if(aciertoReintegro == 1) {
 
+			//Se guarda en el historial una partida ganada si el usuario a acertado mas de 3
 			if (aciertoPrimitiva > 3) {
 
 				h.partidaGanada();
@@ -208,14 +223,13 @@ public class Combinacion {
 				return 1000000;
 
 			} 
+			
 		}
 
 		return 0;
 	}
 
-
-
-
+	//Scanner
 	public static int scannerInt() {
 
 		@SuppressWarnings("resource")
@@ -225,10 +239,5 @@ public class Combinacion {
 		return miNum;
 
 	}
-
-
-
-
-
 
 }
