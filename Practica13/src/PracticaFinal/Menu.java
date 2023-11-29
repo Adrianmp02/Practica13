@@ -9,11 +9,13 @@ public class Menu {
 	public static int compaReintegro;
 	public static int contadorPartidas = 0;
 
-	//Main
-	public static void main(String[] args) {
+	
+	public static void iniciar() {
 
 		//Creamos historial
 		Historial h = new Historial();
+
+		Combinacion c = new Combinacion();
 
 		//variable de valores que pedimos por pantalla
 		int eleccion;
@@ -23,7 +25,7 @@ public class Menu {
 
 		//Pedimos por pantalla los datos que necesitamos al usuario
 		do {
-			
+
 			System.out.println("==========================");
 			System.out.println("|| Elige una opcion:    ||");
 			System.out.println("||----------------------||");
@@ -31,24 +33,24 @@ public class Menu {
 			System.out.println("|| 2) Ver Historial     ||");
 			System.out.println("|| 3) Salir             ||");
 			System.out.println("==========================");
-			
+
 			eleccion = scannerInt();
 
 			if (eleccion == 1) {
 
-				Combinacion.generarBoleto(limitePartidas, h);
+				c.generarBoleto(limitePartidas, h);
 
-			//Se muestra por pantalla el historial
+				//Se muestra por pantalla el historial
 			}else if(eleccion == 2) {
 
 				System.out.println(h.toString());
 
-			//Se sale del juego
+				//Se sale del juego
 			}else if(eleccion == 3) {
 
 				break;
 
-			//Indica que no es valido si el usuario elige cualquier opcion distinta a 1, 2 o 3 y se vuelve a pedir
+				//Indica que no es valido si el usuario elige cualquier opcion distinta a 1, 2 o 3 y se vuelve a pedir
 			}else {
 
 				System.out.println("Opcion no valida, introduzca otra distinta");
