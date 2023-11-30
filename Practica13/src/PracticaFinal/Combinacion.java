@@ -276,8 +276,28 @@ public class Combinacion {
 		Menu.compaReintegro = comparativaReintegro(boletoReintegroManual, boletoReintegroRandom);
 
 		//Indicamos al usuario cuantos aciertos en la primitiva ha tenido y si ha acertado el reintegro
-		System.out.println("Has acertado: "+Menu.compaPrimitiva+" numeros en la primitiva.");
-		System.out.println("Has acertado: "+Menu.compaReintegro+" numero en el reintegro.");
+		
+		if (Menu.compaPrimitiva != 0) {
+		
+			
+			if (Menu.compaPrimitiva==1) {
+				System.out.println("Has acertado: "+Menu.compaPrimitiva+" numero en la primitiva.Enhorabuena");
+			}
+			else {
+				System.out.println("Has acertado: "+Menu.compaPrimitiva+" numeros en la primitiva.Enhorabuena");
+			}
+		}
+		else {
+			System.out.println("No has acertado ningún número de la primitiva.");
+		}
+
+		if (Menu.compaReintegro==1) {
+			System.out.println("Has acertado el número reintegro.Enhorabuena.");
+		}
+		else {
+			System.out.println("No has acertado el número reintegro.");
+		}
+
 
 		//Si ha acertado mas de 3 de guarda el premio para llevar un registro en el historial
 		int premio = puntaje(Menu.compaPrimitiva, Menu.compaReintegro, h);
