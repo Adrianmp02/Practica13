@@ -5,7 +5,8 @@ public class Primitiva {
 	//Main para iniciar
 	public static void main(String[] args) {
 		
-		Menu.iniciar();
+		Menu menu = new Menu();
+		menu.iniciar();
 		
 	}
 }

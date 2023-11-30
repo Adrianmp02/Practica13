@@ -8,9 +8,9 @@ import java.util.Scanner;
 public class Combinacion {
 
 	//Variables para cambiar el Nº max que puede tener el boleto, el Nº max de reintegro y el limite de Nº que puede tener el boleto
-	final static int limiteNum = 6;
-	final static int numMaxPremio = 20;
-	final static int numMaxReintegro = 9;
+	final int limiteNum = 6;
+	final int numMaxPremio = 20;
+	final int numMaxReintegro = 9;
 	
 	//Atributos
 	private  int[] miPrimitiva;
@@ -226,8 +226,10 @@ public class Combinacion {
 		//Llamamos al metodo jugarPartida del historial para guardar la partida jugada
 		h.jugarPartida();
 
+		Menu menu = new Menu();
+		
 		//Se añade +1 al contador de partida
-		Menu.contadorPartidas++;
+		menu.contadorPartidas++;
 
 		//Se guardan en variables los numeros de primitiva Manual y Aleatorio
 		int[] boletoRandom = primitivaRandom();
@@ -244,7 +246,7 @@ public class Combinacion {
 		System.out.println("║     ║   ║ LA PRIMITIVA    ║");
 		System.out.println("║     ╚   ╝                 ║");
 		System.out.println("║                           ║");
-		System.out.println("║       "+Menu.contadorPartidas+". APUESTA(S)       ║");
+		System.out.println("║       "+menu.contadorPartidas+". APUESTA(S)       ║");
 		System.out.println("╠═══════════════════════════╣");
 		System.out.println("║                           ║");
 
@@ -272,18 +274,18 @@ public class Combinacion {
 		System.out.println("=============================");
 
 		//Comparamos la primitiva Manual y Aleatoria / Reintegro Manual y Aleatorio
-		Menu.compaPrimitiva = comparativaPrimitiva(boletoManual, boletoRandom);
-		Menu.compaReintegro = comparativaReintegro(boletoReintegroManual, boletoReintegroRandom);
+		menu.compaPrimitiva = comparativaPrimitiva(boletoManual, boletoRandom);
+		menu.compaReintegro = comparativaReintegro(boletoReintegroManual, boletoReintegroRandom);
 
 		//Se muestra al usuario cuantos aciertos ha tenido
-		if (Menu.compaPrimitiva != 0) {
+		if (menu.compaPrimitiva != 0) {
 		
 			
-			if (Menu.compaPrimitiva==1) {
-				System.out.println("Has acertado: "+Menu.compaPrimitiva+" numero en la primitiva. Enhorabuena");
+			if (menu.compaPrimitiva==1) {
+				System.out.println("Has acertado: "+menu.compaPrimitiva+" numero en la primitiva. Enhorabuena");
 			}
 			else {
-				System.out.println("Has acertado: "+Menu.compaPrimitiva+" numeros en la primitiva. Enhorabuena");
+				System.out.println("Has acertado: "+menu.compaPrimitiva+" numeros en la primitiva. Enhorabuena");
 			}
 		}
 		else {
@@ -291,7 +293,7 @@ public class Combinacion {
 		}
 
 		//Comprobacion si se ha acertado el reintegro
-		if (Menu.compaReintegro==1) {
+		if (menu.compaReintegro==1) {
 			System.out.println("Has acertado el número reintegro.Enhorabuena.");
 		}
 		else {
@@ -300,7 +302,7 @@ public class Combinacion {
 
 
 		//Si ha acertado mas de 3 de guarda el premio para llevar un registro en el historial
-		int premio = puntaje(Menu.compaPrimitiva, Menu.compaReintegro, h);
+		int premio = puntaje(menu.compaPrimitiva, menu.compaReintegro, h);
 
 		//Se muestra por pantalla al usuario el premio que se ha ganado
 		System.out.println("Has ganado: "+premio+" €");
@@ -336,7 +338,7 @@ public class Combinacion {
 	}
 
 	//Scanner NO TOCAR
-	public static int scannerInt() {
+	public int scannerInt() {
 
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);

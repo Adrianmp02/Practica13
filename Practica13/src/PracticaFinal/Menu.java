@@ -3,14 +3,14 @@ package PracticaFinal;
 public class Menu {
 
 	//Limite de partidas que queremos
-	final static int limitePartidas = 10;
+	final int limitePartidas = 10;
 	
 	//Atributos
-	public static int compaPrimitiva;
-	public static int compaReintegro;
-	public static int contadorPartidas = 0;
+	public int compaPrimitiva;
+	public int compaReintegro;
+	public int contadorPartidas = 0;
 	
-	public static void iniciar() {
+	public void iniciar() {
 
 		//Creamos historial
 		Historial h = new Historial();
@@ -31,7 +31,7 @@ public class Menu {
 			System.out.println("|| 3) Salir             ||");
 			System.out.println("==========================");
 
-			eleccion = Combinacion.scannerInt();
+			eleccion = c.scannerInt();
 
 				//Se genera boleto pidiendo al usuario
 			if (eleccion == 1) {
