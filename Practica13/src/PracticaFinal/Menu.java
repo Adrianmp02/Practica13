@@ -1,61 +1,190 @@
 package PracticaFinal;
 
-public class Menu {
+import java.time.LocalDate;
+import java.util.Scanner;
 
-	//Limite de partidas que queremos
+public class Menu {
+	
+	//Limite de partidas que ponemos al usuario
 	final int limitePartidas = 10;
-	
-	//Atributos
-	public int compaPrimitiva;
-	public int compaReintegro;
-	public int contadorPartidas = 0;
-	
+
+	//Variables
+	int contadorPartidas = 0;
+	int compaPrimitiva;
+	int compaReintegro;
+
 	public void iniciar() {
 
 		//Creamos historial
 		Historial h = new Historial();
-
-		Combinacion c = new Combinacion();
-
-		//variable de valores que pedimos por pantalla
+		
+		//Se genera la combinacion para llamar a los metodos.
+		Combinacion comb = new Combinacion();
+		
+		//Variable para pedir al usuario
 		int eleccion;
 
-		//Pedimos por pantalla los datos que necesitamos al usuario
 		do {
+			StringBuffer str = new StringBuffer();
+			
+			str.append("==========================");
+			str.append("\n");
+			str.append("|| Elige una opcion:    ||");
+			str.append("\n");
+			str.append("||----------------------||");
+			str.append("\n");
+			str.append("|| 1) Jugar             ||");
+			str.append("\n");
+			str.append("|| 2) Ver Historial     ||");
+			str.append("\n");
+			str.append("|| 3) Salir             ||");
+			str.append("\n");
+			str.append("==========================");
+			
+			System.out.println(str);
 
-			System.out.println("==========================");
-			System.out.println("|| Elige una opcion:    ||");
-			System.out.println("||----------------------||");
-			System.out.println("|| 1) Jugar             ||");
-			System.out.println("|| 2) Ver Historial     ||");
-			System.out.println("|| 3) Salir             ||");
-			System.out.println("==========================");
+			eleccion = scannerInt();
 
-			eleccion = c.scannerInt();
-
-				//Se genera boleto pidiendo al usuario
 			if (eleccion == 1) {
 
-				c.generarBoleto(limitePartidas, h);
+				h.jugarPartida();
 
-				//Se muestra por pantalla el historial
+				//Se añade +1 al contador de partida
+				contadorPartidas++;
+
+				//Se crean los boletos
+				PrimitivaUsuario boletoUsuario = new PrimitivaUsuario();
+				PrimitivaPremiada boletoPremiado = new PrimitivaPremiada();
+				
+				int[] usuarioPrimitiva = boletoUsuario.generarPrimitivaUsuario();
+				int usuarioReintegro = boletoUsuario.reintegroUsuario();
+
+				int[] primitivaPremiada = boletoPremiado.priPremiada();
+				int reintegroPremiado = boletoPremiado.reinPremiado();
+
+				StringBuffer str2 = new StringBuffer();
+				
+				str2.append("=============================");
+				str2.append("\n");
+				str2.append("╔═══════════════════════════╗");
+				str2.append("\n");
+				str2.append("║                           ║");
+				str2.append("\n");
+				str2.append("║     ╔═══╗                 ║");
+				str2.append("\n");
+				str2.append("║     ║   ║ LA PRIMITIVA    ║");
+				str2.append("\n");
+				str2.append("║     ╚   ╝                 ║");
+				str2.append("\n");
+				str2.append("║                           ║");
+				str2.append("\n");
+				str2.append("║       "+contadorPartidas+". APUESTA(S)       ║");
+				str2.append("\n");
+				str2.append("╠═══════════════════════════╣");
+				str2.append("\n");
+				str2.append("║                           ║");
+				str2.append("\n");
+
+				str2.append("║    1. ");
+				for (int i = 0; i < usuarioPrimitiva.length; i++) {
+
+					str2.append(String.format("%02d", usuarioPrimitiva[i]));
+					str2.append(" ");
+
+				}
+
+				str2.append("  ║");
+				str2.append("\n");
+
+				str2.append("║                           ║");
+				str2.append("\n");
+				str2.append("║      REINTEGRO: "+usuarioReintegro+"         ║");
+				str2.append("\n");
+				str2.append("║                           ║");
+				str2.append("\n");
+				str2.append("╠═══════════════════════════╣");
+				str2.append("\n");
+				str2.append("║                           ║");
+				str2.append("\n");
+				str2.append("║                 1,00 EUR  ║");
+				str2.append("\n");
+				str2.append("║                           ║");
+				str2.append("\n");
+				str2.append("║  "+ LocalDate.now()+"               ║");
+				str2.append("\n");
+				str2.append("║                           ║");
+				str2.append("\n");
+				str2.append("╚═══════════════════════════╝");
+				str2.append("\n");
+				str2.append("=============================");
+				
+				System.out.println(str2);
+
+				//Comparamos la primitiva del Usuario y Premiada / Reintegro Usuario y Premiado
+				compaPrimitiva = comb.comparativaPrimitiva(usuarioPrimitiva, primitivaPremiada);
+				compaReintegro = comb.comparativaReintegro(usuarioReintegro, reintegroPremiado);
+
+				//Se muestra al usuario cuantos aciertos ha tenido
+				if (compaPrimitiva != 0) {
+
+
+					if (compaPrimitiva==1) {
+						System.out.println("Has acertado: "+compaPrimitiva+" numero en la primitiva. Enhorabuena");
+					}
+					else {
+						System.out.println("Has acertado: "+compaPrimitiva+" numeros en la primitiva. Enhorabuena");
+					}
+				}
+				else {
+					System.out.println("No has acertado ningún número de la primitiva.");
+				}
+
+				//Comprobacion si se ha acertado el reintegro
+				if (compaReintegro==1) {
+					System.out.println("Has acertado el número reintegro.Enhorabuena.");
+				}
+				else {
+					System.out.println("No has acertado el número reintegro.");
+				}
+
+
+				//Si ha acertado mas de 3 se guarda el premio para llevar un registro en el historial
+				int premio = comb.puntaje(compaPrimitiva, compaReintegro, h);
+
+				//Se muestra por pantalla al usuario el premio que se ha ganado
+				System.out.println("Has ganado: "+premio+" €");
+
+				h.premioGanado(premio);
+
+
+			//Si el usuario elige la opcion 2, se muestra el historial
 			}else if(eleccion == 2) {
+				
+				//Si el usuario no ha jugado ninguna partida, se le indica al usuario que no hay historial
+				if (contadorPartidas == 0) {
 
-				System.out.println(h.toString());
+					System.out.println("No hay historial reciente. No has jugado ninguna partida.");
+				
+				//Si ha jugado minimo 1 partida, se muestra el historial
+				}else {
 
-				//Se sale del juego
+					h.imprimirHistorial();
+
+				}
+			
+			//Si elige la opcion 3 se cierra
 			}else if(eleccion == 3) {
 
 				break;
 
-				//Indica que no es valido si el usuario elige cualquier opcion distinta a 1, 2 o 3 y se vuelve a pedir
+			//Indica que no es valido si el usuario elige cualquier opcion distinta a 1, 2 o 3 y se vuelve a pedir
 			}else {
 
 				System.out.println("Opcion no valida, introduzca otra distinta");
 
 			}
-
-			//Si el usuario alcanza el limite de partidas el programa se para
+			
+			//Si el usuario llega al limite de partidas, se le mostrara por pantalla el historial y se hara un reset para que continue jugando de cero
 			if (contadorPartidas >= limitePartidas) {
 
 				System.out.println("==========================");
@@ -64,11 +193,23 @@ public class Menu {
 				System.out.println("--------------------------");
 				h.resetHistorial();
 				contadorPartidas = 0;
-				
+
 			}
 
 			//Si el usuario elige la opcion 3 el programa se para
 		}	while(eleccion != 3); 
+
+	}
+
+
+	//Scanner NO TOCAR
+	public int scannerInt() {
+
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+
+		return n;
 
 	}
 
