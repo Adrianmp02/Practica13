@@ -1,14 +1,14 @@
 package PracticaFinal;
 
-import java.util.Scanner;
-
 public class Menu {
 
+	//Limite de partidas que queremos
+	final static int limitePartidas = 10;
+	
 	//Atributos
 	public static int compaPrimitiva;
 	public static int compaReintegro;
 	public static int contadorPartidas = 0;
-
 	
 	public static void iniciar() {
 
@@ -19,9 +19,6 @@ public class Menu {
 
 		//variable de valores que pedimos por pantalla
 		int eleccion;
-
-		//Limite de partidas que queremos y contador para llevar la cuenta
-		int limitePartidas = 10;
 
 		//Pedimos por pantalla los datos que necesitamos al usuario
 		do {
@@ -34,8 +31,9 @@ public class Menu {
 			System.out.println("|| 3) Salir             ||");
 			System.out.println("==========================");
 
-			eleccion = scannerInt();
+			eleccion = Combinacion.scannerInt();
 
+				//Se genera boleto pidiendo al usuario
 			if (eleccion == 1) {
 
 				c.generarBoleto(limitePartidas, h);
@@ -60,25 +58,17 @@ public class Menu {
 			//Si el usuario alcanza el limite de partidas el programa se para
 			if (contadorPartidas >= limitePartidas) {
 
-				System.out.println("Has alcanzado el limite de partidas");
-
-				eleccion = 3;
-
+				System.out.println("==========================");
+				System.out.println("Has alcanzado el limite de partidas.");
+				System.out.println("Este es tu historial:");
+				System.out.println("--------------------------");
+				h.resetHistorial();
+				contadorPartidas = 0;
+				
 			}
 
 			//Si el usuario elige la opcion 3 el programa se para
 		}	while(eleccion != 3); 
-
-	}
-
-	//Scanner
-	public static int scannerInt() {
-
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		int s = sc.nextInt();
-
-		return s;
 
 	}
 

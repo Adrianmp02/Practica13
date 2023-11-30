@@ -43,6 +43,18 @@ public class Historial {
 		return premioTotal;
 
 	}
+	
+	public  int resetHistorial() {
+		
+		System.out.println(toString());
+		
+		partidasJugadas = 0;
+		partidasGanadas = 0;
+		premioTotal = 0;
+		
+		return 1;
+		
+	}
 
 	//Retornamos por pantalla el historial que queremos que vea el usuario
 	public String toString() {
