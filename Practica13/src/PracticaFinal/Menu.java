@@ -24,22 +24,35 @@ public class Menu {
 		//Variable para pedir al usuario
 		int eleccion;
 
+		// StringBuffer para dar formato al menú
 		do {
 			StringBuffer str = new StringBuffer();
 			
-			str.append("==========================");
+			str.append("°°°°°°°°°°°°°°°°°°°°°°°°°°°");
+			str.append("\n||                       ||");
+			str.append("\n||   ELIGE UNA OPCIÒN:   ||");
 			str.append("\n");
-			str.append("|| Elige una opcion:    ||");
+			str.append("||-----------------------||");
+			str.append("\n||                       ||");
 			str.append("\n");
-			str.append("||----------------------||");
+			str.append("||  １➡️ Jugar         ");
+			str.append("\uD83C\uDF40");
+			str.append(" ||");
+			str.append("\n||                       ||");
+			str.append("\n||                       ||");
 			str.append("\n");
-			str.append("|| 1) Jugar             ||");
+			str.append("||  ２➡️ Ver Historial ");  
+			str.append("\uD83D\uDCBE");
+			str.append(" ||");
+			str.append("\n||                       ||");
+			str.append("\n||                       ||");
 			str.append("\n");
-			str.append("|| 2) Ver Historial     ||");
-			str.append("\n");
-			str.append("|| 3) Salir             ||");
-			str.append("\n");
-			str.append("==========================");
+			str.append("||  ３➡️ Salir         ");  
+			str.append("\uD83D\uDEAA");
+			str.append(" ||");
+			str.append("\n||                       ||");
+			str.append("\n||                       ||");
+			str.append("\n°°°°°°°°°°°°°°°°°°°°°°°°°°°");
 			
 			System.out.println(str);
 
@@ -70,11 +83,11 @@ public class Menu {
 				str2.append("\n");
 				str2.append("║                           ║");
 				str2.append("\n");
-				str2.append("║     ╔═══╗                 ║");
+				str2.append("║     ╔════╗                ║");
 				str2.append("\n");
-				str2.append("║     ║   ║ LA PRIMITIVA    ║");
+				str2.append("║     ║ ⚫ ║ LA PRIMITIVA   ║");
 				str2.append("\n");
-				str2.append("║     ╚   ╝                 ║");
+				str2.append("║     ╚    ╝                ║");
 				str2.append("\n");
 				str2.append("║                           ║");
 				str2.append("\n");
