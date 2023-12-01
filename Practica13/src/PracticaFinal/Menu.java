@@ -35,20 +35,20 @@ public class Menu {
 			str.append("||-----------------------||");
 			str.append("\n||                       ||");
 			str.append("\n");
-			str.append("||  １➡️ Jugar         ");
-			str.append("\uD83C\uDF40");
+			str.append("|| １ ► Jugar         ");
+			str.append("\uD83C\uDF40┊");
 			str.append(" ||");
 			str.append("\n||                       ||");
 			str.append("\n||                       ||");
 			str.append("\n");
-			str.append("||  ２➡️ Ver Historial ");  
-			str.append("\uD83D\uDCBE");
+			str.append("|| ２ ► Ver Historial ");  
+			str.append("\uD83D\uDCBE┊");
 			str.append(" ||");
 			str.append("\n||                       ||");
 			str.append("\n||                       ||");
 			str.append("\n");
-			str.append("||  ３➡️ Salir         ");  
-			str.append("\uD83D\uDEAA");
+			str.append("|| ３ ► Salir         ");  
+			str.append("\uD83D\uDEAA┊");
 			str.append(" ||");
 			str.append("\n||                       ||");
 			str.append("\n||                       ||");
@@ -111,7 +111,7 @@ public class Menu {
 
 				str2.append("║                           ║");
 				str2.append("\n");
-				str2.append("║      REINTEGRO: "+usuarioReintegro+"         ║");
+				str2.append("║       REINTEGRO: "+usuarioReintegro+"        ║");
 				str2.append("\n");
 				str2.append("║                           ║");
 				str2.append("\n");
@@ -142,22 +142,22 @@ public class Menu {
 
 
 					if (compaPrimitiva==1) {
-						System.out.println("Has acertado: "+compaPrimitiva+" numero en la primitiva. Enhorabuena");
+						System.out.println("Has acertado: "+compaPrimitiva+" numero en la primitiva. Enhorabuena. 😊");
 					}
 					else {
-						System.out.println("Has acertado: "+compaPrimitiva+" numeros en la primitiva. Enhorabuena");
+						System.out.println("Has acertado: "+compaPrimitiva+" numeros en la primitiva. Enhorabuena. 😊");
 					}
 				}
 				else {
-					System.out.println("No has acertado ningún número de la primitiva.");
+					System.out.println("No has acertado ningún número de la primitiva. 😞");
 				}
 
 				//Comprobacion si se ha acertado el reintegro
 				if (compaReintegro==1) {
-					System.out.println("Has acertado el número reintegro.Enhorabuena.");
+					System.out.println("Has acertado el número reintegro.Enhorabuena. 😄");
 				}
 				else {
-					System.out.println("No has acertado el número reintegro.");
+					System.out.println("No has acertado el número reintegro. 😞");
 				}
 
 
@@ -202,6 +202,10 @@ public class Menu {
 
 				System.out.println("==========================");
 				System.out.println("Has alcanzado el limite de partidas.");
+				System.out.println("La ludopatía puede ser una trampa silenciosa.");
+				System.out.println("Apostar no solo implica dinero, sino también salud mental y bienestar.");
+				System.out.println("¡Juega responsablemente y prioriza tu salud!");
+				System.out.println();
 				System.out.println("Este es tu historial:");
 				System.out.println("--------------------------");
 				h.resetHistorial();

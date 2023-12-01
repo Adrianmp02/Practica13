@@ -61,7 +61,7 @@ public class Historial {
 	
 	//Metodo para hacer reset del historial y antes de que se haga el reset se muestre por pantalla
 	public void resetHistorial() {
-		System.out.println("Has llegado al limite de partidas.");
+		System.out.println("Has llegado al limite de partidas. !Juega con responsabilidad!");
 		System.out.println("Tu historial es el siguiente: ");
 		imprimirHistorial();
 
