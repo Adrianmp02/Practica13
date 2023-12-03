@@ -41,8 +41,12 @@ public class Combinacion {
 	//Dependiendo los aciertos se genera el premio y si se tiene +3 de aciertos se cuenta como partida Ganada y se guarda en historial
 	public int puntaje(int aciertoPrimitiva, int aciertoReintegro, Historial h) {
 
+		int acierto = 0;
+		
 		if(aciertoReintegro == 1) {
 
+			acierto++;
+			
 			//Se guarda en el historial una partida ganada si el usuario a acertado mas de 3
 			if (aciertoPrimitiva > 3) {
 
@@ -52,15 +56,18 @@ public class Combinacion {
 
 			if (aciertoPrimitiva == 4) {
 
-				return 1001;
+				acierto += 1000;
+				return acierto;
 
 			}else if(aciertoPrimitiva == 5) {
 
-				return 10001;
+				acierto += 10000;
+				return acierto;
 
 			}else if(aciertoPrimitiva == 6) {
 
-				return 1000001;
+				acierto += 1000000;
+				return acierto;
 
 			} 
 
@@ -73,16 +80,19 @@ public class Combinacion {
 			}
 
 			if (aciertoPrimitiva == 4) {
-
-				return 1000;
+				
+				acierto = 1000;
+				return acierto;
 
 			}else if(aciertoPrimitiva == 5) {
-
-				return 10000;
+				
+				acierto = 10000;
+				return acierto;
 
 			}else if(aciertoPrimitiva == 6) {
 
-				return 1000000;
+				acierto = 1000000;
+				return acierto;
 
 			} 
 
