@@ -38,7 +38,7 @@ public class Historial {
 	//Contador para llevar registro del premio total que ha ganado el usuario
 	public int premioGanado(int premio) {
 
-		premioTotal *= premio;
+		premioTotal += premio;
 
 		return premioTotal;
 

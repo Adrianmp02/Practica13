@@ -45,7 +45,7 @@ public class Combinacion {
 		
 		if(aciertoReintegro == 1) {
 
-			acierto++;
+			acierto = 1;
 			
 			//Se guarda en el historial una partida ganada si el usuario a acertado mas de 3
 			if (aciertoPrimitiva > 3) {
@@ -98,7 +98,7 @@ public class Combinacion {
 
 		}
 
-		return 0;
+		return acierto;
 
 	}
 
